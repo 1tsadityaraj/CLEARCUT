@@ -5,7 +5,7 @@ const AuthContext = createContext();
 
 // Setup Axios defaults
 const api = axios.create({
-    baseURL: 'http://localhost:5002/api', // Make this dynamic later
+    baseURL: '/api',
 });
 
 export const useAuth = () => useContext(AuthContext);
