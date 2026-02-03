@@ -10,4 +10,3 @@ if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
         console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
     });
 }
-
