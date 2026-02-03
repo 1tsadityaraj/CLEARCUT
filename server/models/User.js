@@ -42,9 +42,10 @@ const userSchema = new mongoose.Schema({
 });
 
 // Encrypt password using bcrypt
-userSchema.pre('save', async function (next) {
+// Encrypt password using bcrypt
+userSchema.pre('save', async function (next) { // Keep next for backward compat if needed, but better to return
     if (!this.isModified('password')) {
-        next();
+        return; // Return promise (async) instead of calling next()
     }
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
